@@ -1,0 +1,485 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api/go_load.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "GoLoadService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/downloader.GoLoadService/CreateAccount": {
+      "post": {
+        "operationId": "GoLoadService_CreateAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/downloaderCreateAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderCreateAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    },
+    "/downloader.GoLoadService/CreateDownloadTask": {
+      "post": {
+        "operationId": "GoLoadService_CreateDownloadTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/downloaderCreateDownloadTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderCreateDownloadTaskRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    },
+    "/downloader.GoLoadService/CreateSession": {
+      "post": {
+        "operationId": "GoLoadService_CreateSession",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/downloaderCreateSessionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderCreateSessionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    },
+    "/downloader.GoLoadService/DeleteDownloadTask": {
+      "post": {
+        "operationId": "GoLoadService_DeleteDownloadTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderDeleteDownloadTaskRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    },
+    "/downloader.GoLoadService/GetDownloadTaskFile": {
+      "post": {
+        "operationId": "GoLoadService_GetDownloadTaskFile",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/downloaderGetDownloadTaskFileResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/rpcStatus"
+                }
+              },
+              "title": "Stream result of downloaderGetDownloadTaskFileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderGetDownloadTaskFileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    },
+    "/downloader.GoLoadService/GetDownloadTaskList": {
+      "post": {
+        "operationId": "GoLoadService_GetDownloadTaskList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/downloaderGetDownloadTaskListResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderGetDownloadTaskListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    },
+    "/downloader.GoLoadService/UpdateDownloadTask": {
+      "post": {
+        "operationId": "GoLoadService_UpdateDownloadTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/downloaderUpdateDownloadTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/downloaderUpdateDownloadTaskRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GoLoadService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "downloaderAccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "accountName": {
+          "type": "string"
+        }
+      }
+    },
+    "downloaderCreateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "downloaderCreateAccountResponse": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "downloaderCreateDownloadTaskRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "downloadType": {
+          "$ref": "#/definitions/downloaderDownloadType"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "downloaderCreateDownloadTaskResponse": {
+      "type": "object",
+      "properties": {
+        "downloadTask": {
+          "$ref": "#/definitions/downloaderDownloadTask"
+        }
+      }
+    },
+    "downloaderCreateSessionRequest": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "downloaderCreateSessionResponse": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/downloaderAccount"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "downloaderDeleteDownloadTaskRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "downloadTask": {
+          "$ref": "#/definitions/downloaderDownloadTask"
+        }
+      }
+    },
+    "downloaderDownloadStatus": {
+      "type": "string",
+      "enum": [
+        "UndefinedStatus",
+        "Pending",
+        "Downloading",
+        "Failed",
+        "Success"
+      ],
+      "default": "UndefinedStatus"
+    },
+    "downloaderDownloadTask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "ofAccount": {
+          "$ref": "#/definitions/downloaderAccount"
+        },
+        "downloadType": {
+          "$ref": "#/definitions/downloaderDownloadType"
+        },
+        "url": {
+          "type": "string"
+        },
+        "downloadStatus": {
+          "$ref": "#/definitions/downloaderDownloadStatus"
+        }
+      }
+    },
+    "downloaderDownloadType": {
+      "type": "string",
+      "enum": [
+        "UndefinedType",
+        "HTTP"
+      ],
+      "default": "UndefinedType"
+    },
+    "downloaderGetDownloadTaskFileRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "downloadTaskId": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "downloaderGetDownloadTaskFileResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "downloaderGetDownloadTaskListRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "limit": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "downloaderGetDownloadTaskListResponse": {
+      "type": "object",
+      "properties": {
+        "downloadTasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/downloaderDownloadTask"
+          }
+        },
+        "totalDownloadTaskCount": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "downloaderUpdateDownloadTaskRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "downloadTaskId": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "downloaderUpdateDownloadTaskResponse": {
+      "type": "object",
+      "properties": {
+        "downloadTask": {
+          "$ref": "#/definitions/downloaderDownloadTask"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
